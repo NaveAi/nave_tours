@@ -19,6 +19,7 @@ body {
             margin-top: 8%;
         }
         form {
+            width: 800px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
