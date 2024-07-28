@@ -71,7 +71,10 @@ body {
         }
         .sleep-part{
             background-image: url(".jfif");
-
+            max-width: 60%;  /* הגדרת רוחב מקסימלי ל-60% */
+            margin-left: auto;  /* מרכוז אוטומטי משמאל */
+            margin-right: auto;  /* מרכוז אוטומטי מימין */
+            width: 100%;  /* שימוש ברוחב מלא עד למקסימום המוגדר */
         }
         .sleep-header-container {
             display: flex;
