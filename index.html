@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עדכונים</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 15px;
+        }
+        h1, h2 ,h3{
+            margin-top: 5%;
+            text-align: center;
+        }
+        .header-fixed {
+            background-color: #ceefd2;
+            height: 40px;
+            margin: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            margin-top: 8%;
+        }
+        form {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        label {
+            display: block;
+            margin-top: 25px;
+        }
+        input, select, textarea {
+            width: 60%;
+            padding: 5px;
+            margin-top: 3px;
+            width: 30%;
+        }
+        button {
+            justify-content: center;
+            background-color: #6c6c6c;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover{
+            background-color: #45a049;
+        }
+        #OrderDate {
+            width: 15%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+        #dayOfWeekResult {
+            color: #ff0000;
+            display: inline-block;
+        }
+        .hidden-menu {
+            display: none;
+        }
+        .hidden-menu.active {
+            display: block;
+            width: 100%;
+        }
+        .sleep-part{
+            background-image: url(".jfif");
+
+        }
+        .sleep-header-container {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            width: 100%;
+            text-align: center;
+        }
+        #sleep-header {
+            margin-top: 0;
+            margin-left: 20px; /* רווח גדול יותר בין הכותרת לטקסט */
+        }
+        .sleep-subtext {
+            font-size: 0.8em;
+        }
+        .comment-sleep {
+           color:#ff0000;
+           text-align: center;
+
+        }
+        #options {
+            margin-top: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Adds space between the buttons */
+        }
+        #options button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .room-map {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .room {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+        }
+        .room.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .places{
+            background-color: #e7e3e3;
+            padding: 5px;
+        }
+        .total-price {
+            top: 10%;
+            position: fixed;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 10px;
+            background-color: #a19090;
+            border-radius: 5px;
+            z-index: 5;
+        }
+        #SumTotal {
+            color: #ff0000;
+        }
+        .finish-header {
+            background-color: #ceefd2;
+            width: 80%;
+        }
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .share-button {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .share-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="total-price" id="totalPrice">
+        <span>סה"כ לתשלום:</span>
+        <span id="SumTotal">₪0</span>
+    </div>
+    <h1>הזמנה לשבת אירוח</h1>
+    <h2 class="header-fixed">פרטי ההזמנה</h2>
+
+    <form id="bookingForm">
+        <label for="name">שם מלא:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">כתובת אימייל:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">מספר טלפון:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="OrderDate">:תאריך ההזמנה</label>
+        <input type="date" id="OrderDate" name="OrderDate" required>
+        <span id="dayOfWeekResult"></span>
+
+        <div class="hidden-menu" id="Saturday">
+            <div class="header-fixed">
+                <div class="sleep-header-container">
+                    <h2 id="sleep-header">לינה:</h2>
+                    <span class="sleep-subtext">(אם אינכם מעוניינים בלינה- דלגו הלאה ל'תפריט')</span>
+                </div>
+            </div>
+                <div class="sleep-part">
+                    <h3>שימו לב!</h3>
+                    <div class="comment-sleep">
+                        <li>המחיר אינו כולל כלי מיטה וכלי רחצה</li>
+                        <li>כל חדר מכיל 5 - 7 מיטות</li>
+                    </div>
+                    <div id="options">
+                        <button name="option" value="yeshiva">ישיבה תיכונית</button>
+                        <button name="option" value="ulpena">אולפנה</button>
+                        <button name="option" value="haluzey">חלוצי דרור</button>
+                    </div>
+                    <div id="locations">
+                        <span id="ulpena" class="hidden-menu">
+                            <h2>בחירת חדרים באולפנה:</h2>
+                            <div class="floor">
+                                <div class="places">
+                                    <h3>קומה ראשונה</h3>
+                                    <div class="room-map">
+                                        <div class="room" data-room="0" data-price="300">חדר 0<br>₪300</div>
+                                        <div class="room" data-room="2" data-price="300">חדר 2<br>₪300</div>
+                                        <div class="room" data-room="3" data-price="300">חדר 3<br>₪300</div>
+                                        <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
+                                        <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
+                                        <div class="room" data-room="6" data-price="300">חדר 6<br>₪300</div>
+                                        <div class="room" data-room="7" data-price="300">חדר 7<br>₪300</div>
+                                        <div class="room" data-room="8" data-price="300">חדר 8<br>₪300</div>
+                                        <div class="room" data-room="9" data-price="300">חדר 9<br>₪300</div>
+                                        <div class="room" data-room="10" data-price="300">חדר 10<br>₪300</div>
+                                    </div>
+                                    <div class="floor">
+                                        <h3>קומה שנייה</h3>
+                                        <div class="room-map">
+                                            <div class="room" data-room="11" data-price="300">חדר 11<br>₪300</div>
+                                            <div class="room" data-room="12" data-price="300">חדר 12<br>₪300</div>
+                                            <div class="room" data-room="13" data-price="300">חדר 13<br>₪300</div>
+                                            <div class="room" data-room="14" data-price="300">חדר 14<br>₪300</div>
+                                            <div class="room" data-room="15" data-price="300">חדר 15<br>₪300</div>
+                                            <div class="room" data-room="16" data-price="300">חדר 16<br>₪300</div>
+                                            <div class="room" data-room="17" data-price="300">חדר 17<br>₪300</div>
+                                            <div class="room" data-room="18" data-price="300">חדר 18<br>₪300</div>
+                                            <div class="room" data-room="19" data-price="300">חדר 19<br>₪300</div>
+                                            <div class="room" data-room="20" data-price="300">חדר 20<br>₪300</div>
+                                            <div class="room" data-room="21" data-price="300">חדר 21<br>₪300</div>
+                                            <div class="room" data-room="22" data-price="300">חדר 22<br>₪300</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        <span class="hidden-menu" id="yeshiva">
+                            <h2>בחירת חדרים בישיבה תיכונית:</h2>
+                            <div class="floor">
+                                <div class="places" id="place-a">
+                                    <h3>מתחם ראשי</h3>
+                                    <h3>קומה ראשונה</h3>
+                                    <div class="room-map">
+                                        <div class="room" data-room="0" data-price="300">חדר 0<br>₪300</div>
+                                        <div class="room" data-room="1" data-price="300">חדר 1<br>₪300</div>
+                                        <div class="room" data-room="2" data-price="300">חדר 2<br>₪300</div>
+                                        <div class="room" data-room="3" data-price="300">חדר 3<br>₪300</div>
+                                        <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
+                                        <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
+                                        <div class="room" data-room="6" data-price="300">חדר 6<br>₪300</div>
+                                        <div class="room" data-room="7" data-price="300">חדר 7<br>₪300</div>
+                                        <div class="room" data-room="8" data-price="300">חדר 8<br>₪300</div>
+                                        <div class="room" data-room="9" data-price="300">חדר 9<br>₪300</div>
+                                        <div class="room" data-room="10" data-price="300">חדר 10<br>₪300</div>
+                                    </div>
+                                    <div class="floor">
+                                        <h3>קומה שנייה</h3>
+                                        <div class="room-map">
+                                            <div class="room" data-room="11" data-price="300">חדר 11<br>₪300</div>
+                                            <div class="room" data-room="12" data-price="300">חדר 12<br>₪300</div>
+                                            <div class="room" data-room="13" data-price="300">חדר 13<br>₪300</div>
+                                            <div class="room" data-room="14" data-price="300">חדר 14<br>₪300</div>
+                                            <div class="room" data-room="15" data-price="300">חדר 15<br>₪300</div>
+                                            <div class="room" data-room="16" data-price="300">חדר 16<br>₪300</div>
+                                            <div class="room" data-room="17" data-price="300">חדר 17<br>₪300</div>
+                                            <div class="room" data-room="18" data-price="300">חדר 18<br>₪300</div>
+                                            <div class="room" data-room="19" data-price="300">חדר 19<br>₪300</div>
+                                            <div class="room" data-room="20" data-price="300">חדר 20<br>₪300</div>
+                                            <div class="room" data-room="21" data-price="300">חדר 21<br>₪300</div>
+                                            <div class="room" data-room="22" data-price="300">חדר 22<br>₪300</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="places" id="place-b">
+                                    <h3>מתחם חדש</h3>
+                                </div>
+                            </div>
+                        </span>
+                        <span class="hidden-menu" id="haluzey">
+                            <h2>בחירת חדרים בחלוצי דרור:</h2>
+                            <!-- מפת חדרים עבור חלוצי דרור -->
+                        </span>
+                    </div>
+                </div>
+            <h2 class="header-fixed">תפריט:</h2>
+            <h2>בחירת תפריט</h2>
+            <div>
+                <h3>ארוחת ערב שישי (₪100 לאדם)</h3>
+                <label><input type="checkbox" name="menu" value="דג סלמון" data-price="100"> דג סלמון</label>
+                <label><input type="checkbox" name="menu" value="עוף צלוי" data-price="100"> עוף צלוי</label>
+                <label><input type="checkbox" name="menu" value="בשר בקר" data-price="100"> בשר בקר</label>
+            </div>
+            <div>
+                <h3>ארוחת בוקר שבת (₪80 לאדם)</h3>
+                <label><input type="checkbox" name="menu" value="ביצים לבחירה" data-price="80"> ביצים לבחירה</label>
+                <label><input type="checkbox" name="menu" value="סלט ירקות" data-price="80"> סלט ירקות</label>
+                <label><input type="checkbox" name="menu" value="מאפים" data-price="80"> מאפים</label>
+            </div>
+            <div>
+                <h3>ארוחת צהריים שבת (₪120 לאדם)</h3>
+                <label><input type="checkbox" name="menu" value="חמין" data-price="120"> חמין</label>
+                <label><input type="checkbox" name="menu" value="קוגל" data-price="120"> קוגל</label>
+                <label><input type="checkbox" name="menu" value="שניצל" data-price="120"> שניצל</label>
+            </div>
+        </div>
+
+        <div class="hidden-menu" id="MidWeek">
+            <h2 class="header-fixed">תפריט אמצע שבוע:</h2>
+        </div>
+
+        <h2 class="finish-header">סיום</h2>
+        <label for="specialRequests">בקשות מיוחדות:</label>
+        <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
+    </form>
+
+    <h3 class="">לסיום ההזמנה יש לשתף דרך הווטסאפ או המייל:</h3>
+    <div class="share-buttons">
+        <div class="share-button" id="WhatsappShare" onclick="shareOnWhatsApp()">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp95BO6ix2nKMKRuSiiGgU9o2i6I9ADVyPhw&s" alt="WhatsApp">
+        </div>
+        <div class="share-button" id="MailShare" onclick="shareOnMail()">
+            <img src="data:image/png;base64,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" alt="Email">
+        </div>
+    </div>
+
+    <script>
+        let totalPrice = 0;
+        let formData = {};
+        const selectedRooms = {};
+        const selectedFoodMenu = {};
+        
+
+        function saveFormData() {
+            const form = document.getElementById('bookingForm');
+            formData = new FormData(form);
+        }
+
+        function restoreFormData() {
+            const form = document.getElementById('bookingForm');
+            formData.forEach((value, key) => {
+                const field = form.elements[key];
+                if (field) {
+                    field.value = value;
+                }
+            });
+        }
+
+        document.querySelectorAll('.room').forEach(room => {
+            room.addEventListener('click', function() {
+                const roomNumber = this.dataset.room;
+                const roomPrice = parseInt(this.dataset.price);
+                const complexId = this.closest('.hidden-menu').id;
+                const complexName = complexId === 'ulpena' ? 'אולפנה' : 'ישיבה תיכונית';
+                const placeId = this.closest('.places').id;
+                const placeNaem = placeId === 'place-a' ? 'מתחם ראשי' : 'מתחם חדש';
+                
+                const roomKey = `${complexId}-${roomNumber}`;
+
+                if (this.classList.toggle('selected')) {
+                    // Add room to selectedRooms
+                    selectedRooms[roomKey] = { complex: complexName, number: roomNumber, price: roomPrice };
+                    totalPrice += roomPrice;
+                } else {
+                    // Remove room from selectedRooms
+                    delete selectedRooms[roomKey];
+                    totalPrice -= roomPrice;
+                }
+                
+                updateTotalPrice();
+            });
+        });
+
+
+        document.querySelectorAll('input[name="menu"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const menuName = this.value;
+                const menuPrice = parseInt(this.dataset.price);
+
+                if (isNaN(menuPrice)) {
+                    console.error(`Invalid price for menu item: ${menuName}`);
+                    return;
+                }
+
+                if (this.checked) {
+                    // Add item to selectedFoodMenu and increase totalPrice
+                    selectedFoodMenu[menuName] = menuPrice;
+                    totalPrice += menuPrice;
+                } else {
+                    // Remove item from selectedFoodMenu and decrease totalPrice
+                    if (menuName in selectedFoodMenu) {
+                        totalPrice -= selectedFoodMenu[menuName];
+                        delete selectedFoodMenu[menuName];
+                    }
+                }
+
+                updateTotalPrice();
+                console.log("Selected items:", selectedFoodMenu);
+                console.log("Total price:", totalPrice);
+            });
+        });
+
+        document.getElementById('OrderDate').addEventListener('change', function() {
+            const date = new Date(this.value);
+            const daysOfWeek = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
+            document.getElementById('dayOfWeekResult').innerText = daysOfWeek[date.getDay()];
+           
+
+            document.querySelectorAll('.hidden-menu').forEach(menu => menu.classList.remove('active'));
+            if (date.getDay() === 6) {
+                document.getElementById('Saturday').classList.add('active');
+            } else {
+                document.getElementById('MidWeek').classList.add('active');
+            }
+        });
+
+        document.querySelectorAll('button[name="option"]').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                saveFormData();
+
+                document.querySelectorAll('#locations span').forEach(location => location.classList.remove('active'));
+
+                document.getElementById(this.value).classList.add('active');
+
+                restoreFormData();
+            });
+        });
+
+        function updateTotalPrice() {
+            document.getElementById('SumTotal').textContent = `₪${totalPrice}`;
+        }
+
+        function generateBookingSummary() {
+            const formData = new FormData(document.getElementById('bookingForm'));
+            let summary = "סיכום הזמנה לשבת אירוח:\n\n";
+
+            summary += `שם: ${formData.get('name')}\n`;
+            summary += `אימייל: ${formData.get('email')}\n`;
+            summary += `טלפון: ${formData.get('phone')}\n`;
+            summary += `${document.getElementById('dayOfWeekResult').innerText} ${formData.get('OrderDate')}\n\n`;
+
+            //summary += "חדרים שנבחרו:\n\n";
+            let complexGroups = {};
+                for (const [key, room] of Object.entries(selectedRooms)) {
+                    if (!complexGroups[room.complex]) {
+                        complexGroups[room.complex] = [];
+                    }
+                    complexGroups[room.complex].push(room);
+                }
+    
+            // Generate summary for each complex
+            for (const [complex, rooms] of Object.entries(complexGroups)) {
+                summary += `*${complex}*:\n`;
+                rooms.forEach(room => {
+                    summary += `- חדר ${room.number} (₪${room.price})\n`;
+                });
+            summary += '\n'
+            }
+
+            // add menu selected
+            summary += '*תפריט שנבחר*\n';
+            Object.keys(selectedFoodMenu).forEach(item => {
+                summary += `- ${item}\n`;
+            });
+
+
+            const specialRequests = formData.get('specialRequests');
+            if (specialRequests) {
+                summary += `\nבקשות מיוחדות: ${specialRequests}\n`;
+            }
+
+            summary += `\nסה"כ לתשלום: ₪${totalPrice}`;
+
+            return summary;
+        }
+
+        function shareOnWhatsApp() {
+            const summary = generateBookingSummary();
+            const encodedSummary = encodeURIComponent(summary);
+            window.open(`https://wa.me/+972547431304?text=${encodedSummary}`, '_blank');
+        }
+
+        function shareOnMail() {
+            const summary = generateBookingSummary();
+            const encodedSummary = encodeURIComponent(summary);
+            window.location.href = `mailto:?subject=סיכום הזמנה לשבת אירוח&body=${encodedSummary}`;
+        }
+    </script>
+</body>
+</html>
