@@ -107,18 +107,22 @@ body {
             font-size: 16px;
             cursor: pointer;
         }
-        .room-map {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .room {
-            padding: 5px;
-            border: 1px solid #ccc;
-            text-align: center;
-            cursor: pointer;
-        }
+            .room-map {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: 5px;
+                margin-top: 20px;
+                width: 100%;  /* הוספנו את זה */
+            }
+            
+            .room {
+                padding: 5px;
+                border: 1px solid #ccc;
+                text-align: center;
+                cursor: pointer;
+                word-break: break-word;  /* הוספנו את זה */
+            }
+
         .room.selected {
             background-color: #4CAF50;
             color: white;
