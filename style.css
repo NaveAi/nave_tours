@@ -1,4 +1,3 @@
-
 body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -75,7 +74,7 @@ body {
             margin-left: auto;  /* מרכוז אוטומטי משמאל */
             margin-right: auto;  /* מרכוז אוטומטי מימין */
             width: 100%;  /* שימוש ברוחב מלא עד למקסימום המוגדר */
-        }
+    }
         .sleep-header-container {
             display: flex;
             justify-content: center;
@@ -107,22 +106,22 @@ body {
             font-size: 16px;
             cursor: pointer;
         }
-            .room-map {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-                gap: 5px;
-                margin-top: 20px;
-                width: 100%;  /* הוספנו את זה */
-            }
-            
-            .room {
-                padding: 5px;
-                border: 1px solid #ccc;
-                text-align: center;
-                cursor: pointer;
-                word-break: break-word;  /* הוספנו את זה */
-            }
 
+        .room-map {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 5px;
+            margin-top: 20px;
+            width: 100%;  /* הוספנו את זה */
+        }
+
+        .room {
+            padding: 5px;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+            word-break: break-word;  /* הוספנו את זה */
+        }
         .room.selected {
             background-color: #4CAF50;
             color: white;
