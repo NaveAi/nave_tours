@@ -1,23 +1,23 @@
-        let totalPrice = 0;
-        let formData = {};
-        const selectedRooms = {};
-        const selectedFoodMenu = {};
-        
+let totalPrice = 0;
+let formData = {};
+const selectedRooms = {};
+const selectedFoodMenu = {};
 
-        function saveFormData() {
-            const form = document.getElementById('bookingForm');
-            formData = new FormData(form);
-        }
 
-        function restoreFormData() {
-            const form = document.getElementById('bookingForm');
-            formData.forEach((value, key) => {
-                const field = form.elements[key];
-                if (field) {
-                    field.value = value;
-                }
-            });
+function saveFormData() {
+    const form = document.getElementById('bookingForm');
+    formData = new FormData(form);
+}
+
+function restoreFormData() {
+        const form = document.getElementById('bookingForm');
+        formData.forEach((value, key) => {
+        const field = form.elements[key];
+        if (field) {
+                field.value = value;
         }
+        });
+}
 
         document.querySelectorAll('.room').forEach(room => {
             room.addEventListener('click', function() {
