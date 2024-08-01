@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="total-price" id="totalPrice">
-        <span>סה"כ לתשלום:</span>
+        <span>סה"כ:</span>
         <span id="SumTotal">₪0</span>
     </div>
     <h1>הזמנה לשבת אירוח</h1>
@@ -36,105 +36,137 @@
                     <span class="sleep-subtext">(אם אינכם מעוניינים בלינה- דלגו הלאה ל'תפריט')</span>
                 </div>
             </div>
-                <div class="sleep-part">
-                    <h3>שימו לב!</h3>
-                    <div class="comment-sleep">
-                        <li>המחיר אינו כולל כלי מיטה וכלי רחצה</li>
-                        <li>כל חדר מכיל 5 - 7 מיטות</li>
-                    </div>
-                    <div id="options">
-                        <button name="option" value="yeshiva">ישיבה תיכונית</button>
-                        <button name="option" value="ulpena">אולפנה</button>
-                        <button name="option" value="haluzey">חלוצי דרור</button>
-                    </div>
-                    <div id="locations">
-                        <span id="ulpena" class="hidden-menu">
-                            <h2>בחירת חדרים באולפנה:</h2>
-                            <div class="floor">
-                                <div class="places">
-                                    <h3>קומה ראשונה</h3>
-                                    <div class="room-map">
-                                        <div class="room" data-room="0" data-price="300">חדר 0<br>₪300</div>
-                                        <div class="room" data-room="2" data-price="300">חדר 2<br>₪300</div>
-                                        <div class="room" data-room="3" data-price="300">חדר 3<br>₪300</div>
-                                        <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
-                                        <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
-                                        <div class="room" data-room="6" data-price="300">חדר 6<br>₪300</div>
-                                        <div class="room" data-room="7" data-price="300">חדר 7<br>₪300</div>
-                                        <div class="room" data-room="8" data-price="300">חדר 8<br>₪300</div>
-                                        <div class="room" data-room="9" data-price="300">חדר 9<br>₪300</div>
-                                        <div class="room" data-room="10" data-price="300">חדר 10<br>₪300</div>
-                                    </div>
-                                </div>
-                                <div class="places">
-                                    <div class="floor">
-                                        <h3>קומה שנייה</h3>
-                                        <div class="room-map">
-                                            <div class="room" data-room="11" data-price="300">חדר 11<br>₪300</div>
-                                            <div class="room" data-room="12" data-price="300">חדר 12<br>₪300</div>
-                                            <div class="room" data-room="13" data-price="300">חדר 13<br>₪300</div>
-                                            <div class="room" data-room="14" data-price="300">חדר 14<br>₪300</div>
-                                            <div class="room" data-room="15" data-price="300">חדר 15<br>₪300</div>
-                                            <div class="room" data-room="16" data-price="300">חדר 16<br>₪300</div>
-                                            <div class="room" data-room="17" data-price="300">חדר 17<br>₪300</div>
-                                            <div class="room" data-room="18" data-price="300">חדר 18<br>₪300</div>
-                                            <div class="room" data-room="19" data-price="300">חדר 19<br>₪300</div>
-                                            <div class="room" data-room="20" data-price="300">חדר 20<br>₪300</div>
-                                            <div class="room" data-room="21" data-price="300">חדר 21<br>₪300</div>
-                                            <div class="room" data-room="22" data-price="300">חדר 22<br>₪300</div>
-                                        </div>
-                                    </div>
+            <div class="sleep-part">
+                <h3>שימו לב!</h3>
+                <div class="comment-sleep">
+                    <li>המחיר אינו כולל כלי מיטה וכלי רחצה</li>
+                    <li>כל חדר מכיל 5 - 7 מיטות</li>
+                </div>
+                <div id="options">
+                    <button name="option" value="yeshiva">ישיבה תיכונית</button>
+                    <button name="option" value="ulpena">אולפנה</button>
+                    <button name="option" value="haluzey">חלוצי דרור</button>
+                </div>
+                <div id="locations">
+                    <span id="ulpena" class="hidden-menu">
+                        <h2>בחירת חדרים באולפנה:</h2>
+                        <div id="place-a">
+                            <div class="floor-1">
+                                <h3>קומה ראשונה</h3>
+                                <div class="room-map">
+                                    <div class="room" data-room="0" data-price="300">חדר 0<br>₪300</div>
+                                    <div class="room" data-room="2" data-price="300">חדר 2<br>₪300</div>
+                                    <div class="room" data-room="3" data-price="300">חדר 3<br>₪300</div>
+                                    <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
+                                    <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
+                                    <div class="room" data-room="6" data-price="300">חדר 6<br>₪300</div>
+                                    <div class="room" data-room="7" data-price="300">חדר 7<br>₪300</div>
+                                    <div class="room" data-room="8" data-price="300">חדר 8<br>₪300</div>
+                                    <div class="room" data-room="9" data-price="300">חדר 9<br>₪300</div>
+                                    <div class="room" data-room="10" data-price="300">חדר 10<br>₪300</div>
                                 </div>
                             </div>
-                        </span>
-                        <span class="hidden-menu" id="yeshiva">
-                            <h2>בחירת חדרים בישיבה תיכונית:</h2>
-                            <div class="floor">
-                                <div class="places" id="place-a">
-                                    <h3>מתחם ראשי</h3>
-                                    <h3>קומה ראשונה</h3>
-                                    <div class="room-map">
-                                        <div class="room" data-room="0" data-price="300">חדר 0<br>₪300</div>
+                        </div>
+                        <div id="place-a">
+                            <div class="floor-2">
+                                <h3 id="-floor">קומה שנייה</h3>
+                                <div class="room-map">
+                                    <div class="room" data-room="11" data-price="300">חדר 11<br>₪300</div>
+                                    <div class="room" data-room="12" data-price="300">חדר 12<br>₪300</div>
+                                    <div class="room" data-room="13" data-price="300">חדר 13<br>₪300</div>
+                                    <div class="room" data-room="14" data-price="300">חדר 14<br>₪300</div>
+                                    <div class="room" data-room="15" data-price="300">חדר 15<br>₪300</div>
+                                    <div class="room" data-room="16" data-price="300">חדר 16<br>₪300</div>
+                                    <div class="room" data-room="17" data-price="300">חדר 17<br>₪300</div>
+                                    <div class="room" data-room="18" data-price="300">חדר 18<br>₪300</div>
+                                    <div class="room" data-room="19" data-price="300">חדר 19<br>₪300</div>
+                                    <div class="room" data-room="20" data-price="300">חדר 20<br>₪300</div>
+                                    <div class="room" data-room="21" data-price="300">חדר 21<br>₪300</div>
+                                    <div class="room" data-room="22" data-price="300">חדר 22<br>₪300</div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="hidden-menu" id="yeshiva">
+                        <h2>בחירת חדרים בישיבה תיכונית:</h2>
+                        <div class="places" id="place-a">
+                            <h3>מתחם ראשי</h3>
+                            <div class="floor-1">
+                                <h3>קומה ראשונה</h3>
+                                <div class="room-map">
+                                    <div class="room" data-room="0" data-price="300">חדר 0<br>₪300</div>
+                                    <div class="room" data-room="1" data-price="300">חדר 1<br>₪300</div>
+                                    <div class="room" data-room="2" data-price="300">חדר 2<br>₪300</div>
+                                    <div class="room" data-room="3" data-price="300">חדר 3<br>₪300</div>
+                                    <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
+                                    <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
+                                    <div class="room" data-room="6" data-price="300">חדר 6<br>₪300</div>
+                                    <div class="room" data-room="7" data-price="300">חדר 7<br>₪300</div>
+                                    <div class="room" data-room="8" data-price="300">חדר 8<br>₪300</div>
+                                    <div class="room" data-room="9" data-price="300">חדר 9<br>₪300</div>
+                                    <div class="room" data-room="10" data-price="300">חדר 10<br>₪300</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="places" id="place-a">
+                            <div class="floor-2">
+                                <h3>קומה שנייה</h3> 
+                                <div class="room-map">
+                                    <div class="room" data-room="11" data-price="300">חדר 11<br>₪300</div>
+                                    <div class="room" data-room="12" data-price="300">חדר 12<br>₪300</div>
+                                    <div class="room" data-room="13" data-price="300">חדר 13<br>₪300</div>
+                                    <div class="room" data-room="14" data-price="300">חדר 14<br>₪300</div>
+                                    <div class="room" data-room="15" data-price="300">חדר 15<br>₪300</div>
+                                    <div class="room" data-room="16" data-price="300">חדר 16<br>₪300</div>
+                                    <div class="room" data-room="17" data-price="300">חדר 17<br>₪300</div>
+                                    <div class="room" data-room="18" data-price="300">חדר 18<br>₪300</div>
+                                    <div class="room" data-room="19" data-price="300">חדר 19<br>₪300</div>
+                                    <div class="room" data-room="20" data-price="300">חדר 20<br>₪300</div>
+                                    <div class="room" data-room="21" data-price="300">חדר 21<br>₪300</div>
+                                    <div class="room" data-room="22" data-price="300">חדר 22<br>₪300</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="places" id="place-b">
+                            <h3>מתחם חדש א'</h3>
+                            <div class="room-map">
+                                <div class="apartment-container">
+                                    <lable class="Apartment-lable">דירת 3 חדרים:</lable>
+                                    <div class="Apartment">
                                         <div class="room" data-room="1" data-price="300">חדר 1<br>₪300</div>
                                         <div class="room" data-room="2" data-price="300">חדר 2<br>₪300</div>
                                         <div class="room" data-room="3" data-price="300">חדר 3<br>₪300</div>
-                                        <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
-                                        <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
+                                    </div>
+                                    <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
+                                    <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
+                                    <label class="Apartment-lable">דירת 3 חדרים:</label>
+                                    <div class="Apartment">    
                                         <div class="room" data-room="6" data-price="300">חדר 6<br>₪300</div>
                                         <div class="room" data-room="7" data-price="300">חדר 7<br>₪300</div>
                                         <div class="room" data-room="8" data-price="300">חדר 8<br>₪300</div>
-                                        <div class="room" data-room="9" data-price="300">חדר 9<br>₪300</div>
-                                        <div class="room" data-room="10" data-price="300">חדר 10<br>₪300</div>
                                     </div>
-                                    <div class="floor">
-                                        <h3>קומה שנייה</h3>
-                                        <div class="room-map">
-                                            <div class="room" data-room="11" data-price="300">חדר 11<br>₪300</div>
-                                            <div class="room" data-room="12" data-price="300">חדר 12<br>₪300</div>
-                                            <div class="room" data-room="13" data-price="300">חדר 13<br>₪300</div>
-                                            <div class="room" data-room="14" data-price="300">חדר 14<br>₪300</div>
-                                            <div class="room" data-room="15" data-price="300">חדר 15<br>₪300</div>
-                                            <div class="room" data-room="16" data-price="300">חדר 16<br>₪300</div>
-                                            <div class="room" data-room="17" data-price="300">חדר 17<br>₪300</div>
-                                            <div class="room" data-room="18" data-price="300">חדר 18<br>₪300</div>
-                                            <div class="room" data-room="19" data-price="300">חדר 19<br>₪300</div>
-                                            <div class="room" data-room="20" data-price="300">חדר 20<br>₪300</div>
-                                            <div class="room" data-room="21" data-price="300">חדר 21<br>₪300</div>
-                                            <div class="room" data-room="22" data-price="300">חדר 22<br>₪300</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="places" id="place-b">
-                                    <h3>מתחם חדש</h3>
                                 </div>
                             </div>
-                        </span>
-                        <span class="hidden-menu" id="haluzey">
-                            <h2>בחירת חדרים בחלוצי דרור:</h2>
-                            <!-- מפת חדרים עבור חלוצי דרור -->
-                        </span>
-                    </div>
+                        </div>
+                        <div class="places" id="place-c">
+                            <h3>מתחם חדש ב'</h3>
+                            <div class="room-map">
+                                <div class="room" data-room="1" data-price="300">חדר 1<br>₪300</div>
+                                <div class="room" data-room="2" data-price="300">חדר 2<br>₪300</div>
+                                <div class="room" data-room="3" data-price="300">חדר 3<br>₪300</div>
+                                <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
+                                <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
+                                <div class="room" data-room="6" data-price="300">חדר 6<br>₪300</div>
+                                <div class="room" data-room="7" data-price="300">חדר 7<br>₪300</div>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="hidden-menu" id="haluzey">
+                        <h2>בחירת חדרים בחלוצי דרור:</h2>
+                        <!-- מפת חדרים עבור חלוצי דרור -->
+                    </span>
                 </div>
+            </div>
             <h2 class="header-fixed">תפריט:</h2>
             <h2>בחירת תפריט</h2>
             <div>
