@@ -19,55 +19,55 @@ let totalPrice = 0;
             });
         }
 document.querySelectorAll('.room').forEach(room => {
-            room.addEventListener('click', function() {
-                const roomNumber = this.dataset.room;
-                const roomPrice = parseInt(this.dataset.price);
+    room.addEventListener('click', function() {
+        const roomNumber = this.dataset.room;
+        const roomPrice = parseInt(this.dataset.price);
 
-                if (isNaN(roomPrice)) {
-                    console.error(`Invalid price for room: ${roomNumber}`);
-                    return;
-                }
+        if (isNaN(roomPrice)) {
+            console.error(`Invalid price for room: ${roomNumber}`);
+            return;
+        }
 
-                const placeElement = this.closest('[id^="place-"]');
-                const complexElement = this.closest('.hidden-menu');
+        const placeElement = this.closest('[id^="place-"]');
+        const complexElement = this.closest('.hidden-menu');
 
-                if (!placeElement || !complexElement) {
-                    console.error(`Could not find parent elements for room: ${roomNumber}`);
-                    return;
-                }
+        if (!placeElement || !complexElement) {
+            console.error(`Could not find parent elements for room: ${roomNumber}`);
+            return;
+        }
 
-                const placeId = placeElement.id;
-                const complexId = complexElement.id;
+        const placeId = placeElement.id;
+        const complexId = complexElement.id;
 
-                const placeName = placeId === 'place-a' ? 'מתחם ראשי' :
-                                placeId === 'place-b' ? 'מתחם חדש א' :
-                                placeId === 'place-c' ? 'מתחם חדש ב' :
-                                '';
+        const placeName = placeId === 'place-a' ? 'מתחם ראשי' :
+                        placeId === 'place-b' ? 'מתחם חדש א' :
+                        placeId === 'place-c' ? 'מתחם חדש ב' :
+                        '';
 
-                const complexName = complexId === 'ulpena' ? 'אולפנה' : 
-                                    complexId === 'yeshiva' && placeId === 'place-a' ? 'ישיבה תיכונית מתחם ראשי' :
-                                    complexId === 'yeshiva' && placeId === 'place-b' ? 'ישיבה תיכונית מתחם חדש א' :
-                                    complexId === 'yeshiva' && placeId === 'place-c' ? 'ישיבה תיכונית מתחם חדש ב' :
-                                    complexId === 'haluzey' ? 'חלוצי דרור':
-                                    '';
+        const complexName = complexId === 'ulpena' ? 'אולפנה' : 
+                            complexId === 'yeshiva' && placeId === 'place-a' ? 'ישיבה תיכונית מתחם ראשי' :
+                            complexId === 'yeshiva' && placeId === 'place-b' ? 'ישיבה תיכונית מתחם חדש א' :
+                            complexId === 'yeshiva' && placeId === 'place-c' ? 'ישיבה תיכונית מתחם חדש ב' :
+                            complexId === 'haluzey' ? 'חלוצי דרור':
+                            '';
 
-                const roomKey = `${complexId}-${placeId}-${roomNumber}`;
+        const roomKey = `${complexId}-${placeId}-${roomNumber}`;
 
-                if (this.classList.toggle('selected')) {
-                    // Add room to selectedRooms
-                    selectedRooms[roomKey] = { complex: complexName, number: roomNumber, price: roomPrice };
-                    totalPrice += roomPrice;
-                } else {
-                    // Remove room from selectedRooms
-                    delete selectedRooms[roomKey];
-                    totalPrice -= roomPrice;
-                }
-                
-                updateTotalPrice();
-                console.log("Selected rooms:", selectedRooms);
-                console.log("Total price:", totalPrice);
-            });
-        });
+        if (this.classList.toggle('selected')) {
+            // Add room to selectedRooms
+            selectedRooms[roomKey] = { complex: complexName, number: roomNumber, price: roomPrice };
+            totalPrice += roomPrice;
+        } else {
+            // Remove room from selectedRooms
+            delete selectedRooms[roomKey];
+            totalPrice -= roomPrice;
+        }
+        
+        updateTotalPrice();
+        console.log("Selected rooms:", selectedRooms);
+        console.log("Total price:", totalPrice);
+    });
+});
 
         document.querySelectorAll('input[name="menu"]').forEach(checkbox => {
             checkbox.addEventListener('change', function() {
