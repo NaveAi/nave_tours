@@ -18,19 +18,32 @@ let totalPrice = 0;
                 }
             });
         }
-
-        document.querySelectorAll('.room').forEach(room => {
+document.querySelectorAll('.room').forEach(room => {
             room.addEventListener('click', function() {
                 const roomNumber = this.dataset.room;
                 const roomPrice = parseInt(this.dataset.price);
 
-                const placeId = this.closest('.places').id;
-                const placeName = placeId === 'place-a' ? 'מתחם ראשי' :
-                                  placeId === 'place-b' ? 'מתחם חדש א' :
-                                  placeId === 'place-c' ? 'מתחם חדש ב' :
-                                  '';
+                if (isNaN(roomPrice)) {
+                    console.error(`Invalid price for room: ${roomNumber}`);
+                    return;
+                }
 
-                const complexId = this.closest('.hidden-menu').id;
+                const placeElement = this.closest('[id^="place-"]');
+                const complexElement = this.closest('.hidden-menu');
+
+                if (!placeElement || !complexElement) {
+                    console.error(`Could not find parent elements for room: ${roomNumber}`);
+                    return;
+                }
+
+                const placeId = placeElement.id;
+                const complexId = complexElement.id;
+
+                const placeName = placeId === 'place-a' ? 'מתחם ראשי' :
+                                placeId === 'place-b' ? 'מתחם חדש א' :
+                                placeId === 'place-c' ? 'מתחם חדש ב' :
+                                '';
+
                 const complexName = complexId === 'ulpena' ? 'אולפנה' : 
                                     complexId === 'yeshiva' && placeId === 'place-a' ? 'ישיבה תיכונית מתחם ראשי' :
                                     complexId === 'yeshiva' && placeId === 'place-b' ? 'ישיבה תיכונית מתחם חדש א' :
@@ -38,8 +51,6 @@ let totalPrice = 0;
                                     complexId === 'haluzey' ? 'חלוצי דרור':
                                     '';
 
-
-                
                 const roomKey = `${complexId}-${placeId}-${roomNumber}`;
 
                 if (this.classList.toggle('selected')) {
@@ -53,9 +64,10 @@ let totalPrice = 0;
                 }
                 
                 updateTotalPrice();
+                console.log("Selected rooms:", selectedRooms);
+                console.log("Total price:", totalPrice);
             });
         });
-
 
         document.querySelectorAll('input[name="menu"]').forEach(checkbox => {
             checkbox.addEventListener('change', function() {
