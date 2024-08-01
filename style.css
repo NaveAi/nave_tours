@@ -1,4 +1,4 @@
-body {
+        body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
@@ -106,10 +106,10 @@ body {
             font-size: 16px;
             cursor: pointer;
         }
-
         .room-map {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            grid-template-rows: auto;
             gap: 5px;
             margin-top: 20px;
             width: 100%;  /* הוספנו את זה */
@@ -126,9 +126,41 @@ body {
             background-color: #4CAF50;
             color: white;
         }
-        .places{
+        #place-a{
+            margin-top: 3%;
             background-color: #e7e3e3;
             padding: 5px;
+        }
+        #place-b {
+            margin-top: 3%;
+            background-color: #f4dada;
+            padding: 5px;
+        }
+        #place-c {
+            margin-top: 3%;
+            background-color: #d3ebff;
+            padding: 5px;
+        }
+       .Apartment {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 5px;       
+        }
+        .Apartment .room{
+            background-color: #89dcbf;
+        }
+        .Apartment .room.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .Apartment-lable {
+            background-color: #89dcbf;
+            margin-top: 0px;
+        }
+        .apartment-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5px;
         }
         .total-price {
             top: 10%;
