@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>הזמנת אירוח</title>
-</head>
-<body>
-    <div class="total-price" id="totalPrice">
+<div class="total-price" id="totalPrice">
         <span>סה"כ:</span>
         <span id="SumTotal">₪0</span>
     </div>
@@ -130,34 +120,26 @@
                         <div class="places" id="place-b">
                             <h3>מתחם חדש א'</h3>
                             <div class="room-map">
-                                <div class="apartment-container">
-                                    <lable class="Apartment-lable">דירת 3 חדרים:</lable>
-                                    <div class="Apartment">
-                                        <div class="room" data-room="1" data-price="300">חדר 1<br>₪300</div>
-                                        <div class="room" data-room="2" data-price="300">חדר 2<br>₪300</div>
-                                        <div class="room" data-room="3" data-price="300">חדר 3<br>₪300</div>
-                                    </div>
-                                    <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
-                                    <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
-                                    <label class="Apartment-lable">דירת 3 חדרים:</label>
-                                    <div class="Apartment">    
-                                        <div class="room" data-room="6" data-price="300">חדר 6<br>₪300</div>
-                                        <div class="room" data-room="7" data-price="300">חדר 7<br>₪300</div>
-                                        <div class="room" data-room="8" data-price="300">חדר 8<br>₪300</div>
-                                    </div>
+                                <div class="BigApartment">
+                                    <div class="room" data-room="1" data-price="500">דירה גדולה- 3 חדרים<br>₪500</div>
+                                </div>
+                                <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
+                                <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>   
+                                <div class="BigApartment">
+                                    <div class="room" data-room="6" data-price="500">דירה גדולה- 3 חדרים<br>₪500</div>
                                 </div>
                             </div>
                         </div>
                         <div class="places" id="place-c">
                             <h3>מתחם חדש ב'</h3>
                             <div class="room-map">
-                                <div class="room" data-room="1" data-price="300">חדר 1<br>₪300</div>
-                                <div class="room" data-room="2" data-price="300">חדר 2<br>₪300</div>
-                                <div class="room" data-room="3" data-price="300">חדר 3<br>₪300</div>
-                                <div class="room" data-room="4" data-price="300">חדר 4<br>₪300</div>
-                                <div class="room" data-room="5" data-price="300">חדר 5<br>₪300</div>
-                                <div class="room" data-room="6" data-price="300">חדר 6<br>₪300</div>
-                                <div class="room" data-room="7" data-price="300">חדר 7<br>₪300</div>
+                                <div class="room" data-room="1" data-price="400">חדר 1<br>₪400</div>
+                                <div class="room" data-room="2" data-price="400">חדר 2<br>₪400</div>
+                                <div class="room" data-room="3" data-price="400">חדר 3<br>₪400</div>
+                                <div class="room" data-room="4" data-price="400">חדר 4<br>₪400</div>
+                                <div class="room" data-room="5" data-price="400">חדר 5<br>₪400</div>
+                                <div class="room" data-room="6" data-price="400">חדר 6<br>₪400</div>
+                                <div class="room" data-room="7" data-price="400">חדר 7<br>₪400</div>
                             </div>
                         </div>
                     </span>
@@ -207,5 +189,3 @@
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAABj1BMVEX/////QTEBq0syfcEyfcDnGRv+vQH///3//v/5//4Aq0YBqk0vqmQddL42fLoAq0r5rBP6PCzM2eaj2LcAqUD9vwD/+/8AnkLy//brFh/6//4ze8L44qD0/P7gAAD7//zwxMMacrf3wQD6RDD/twDoAAD/9//+QDb/QS3aAAD8//foGhbjHBv/PDn+29H3RDLqQy7/9/T56eLrrartnpnsrJ/vxLn99Nn457v73pP567P898f//+jglI7ePUTYOjrohYL22oL0xTr32nb+4ODZb3HlaW30zVf+9cXSAA3tnaDXZ2T+/ejt0EvWXF3RKizwxTzeUVf1Exvyt7P5Mxjsd2fyUE/xQT32sqPsf3b7RSP03czhVkHvoJPsblrnFybeztXEDxfkuwDL2aQ0bqO0Nle8xBAApCUdcsmHVGzaFC6WsyliaI3CKzLfxxharybFux9iZpuKT3yIuCB8WH1lYqxArjgfhcOkQFuNTohlnkfxWVjqh3fykpLI8t9Yj7unyNqCzKGCs9YAmENhyJLqynTpAAAMoklEQVR4nO2diVvbRhqHx/iYkQ02otaARwGBZeJBMjZ2CL13ydmLbTfGgeAmYZtN07Tb9Eq3ZDc9t/3D9xsZYgck2QYkH53f4/AkBCzp9XfOISEkJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSU1SBFCEMKGwuDrgE4BDs2YOBE8qDMAEUqphTGcyACEOzSI4yMiPgXLMgw4PhsEg9alE3gRw8Ik/BMQDIQRvjif8E8AE4panwAlbHC+QGuLl9bvXd6oDeYMrFdfu/D66xfeePOt8CMSg0iIFFR7+y8rC8ughZW/bpYZofD94J2CEstCFqH4zStX8/mEo6vXXkUKxVaIDoExZez6jZVlOy5Uitv2ysLNmgK2SXHQECwMYZgab11L5BOFQkEg0BJa/p13GSZWwMd+SQxfem/FtkvxlnLxuL2w8D5cvxK4TYK9IcW4IK68kDgSsNCuYBKiQ0A6vLEMlx3fj79QDmzhgxpDgZsjtgy2dU0rJPKa4NCyg4SmFQp/26JBH7wtVv0QEMTtNgFwh3gut/DRIgrUFcTnTBh692riZWlAATzj768GefAOGZRZH9ilDgBt1VcuO6cZ0KGhHoBagFzIFxKuKly1GAkjLmLC3l+p2/HSSQS2bS9/WEUQFIJxTANTrGxdE5+5h64QK4SYQA1ce88u1d0YCDn+oARz7It4DvygMxa+7BEA5zXGgocA7nhjuVSy3RCUSrlcyV552wrIIAm2XgcAeS8IoHdCSA4ESqO4XcrFXQMCZEu7Hl/5sAauS0SOOL/zgffCIh848U/zZJB/LYTOgbD1lZy7G7RzxEeLAICdZ0tLCCXo+vF84KJryDinQ3oKyqBbdhcGdt1urhtIJOtzY2BAabi9Nu1nAi1d3TqnI/qIVW1/BpAxbDvSuF1lhJ1jyUSsTVWd9kwIh9IS+TcD9wUwyIVuDCA2qpHGWlkAOK8Twh/vqBwYFPztACqHN4KvVNHigmtO6AgHuVy8aBZXG+sWImd0TgYeZUCUw9sVzovqtNaVQeGN87lQHwkG/uHAUUSosVeFWMbO0kpiAyNCla09lcMbAoMuvgC+cuEcr9bjpPpgwPluWVy+dfqWFltzEFbKOw2BoBcGhSFjsMq5es9SlDNUCYwSxbizqlaKI8ogYkZ443YNnb5yE4M1tT3VhHcaUQaO/YI/IKfd6xsEhvaHKOWdZuRIIxgPWrbQVNcNho2+S1iqQGIld1Sz2AcDbSgZQGRUb9aw0ncbNQfFcXWv3uSro86gWCxGzMbaIuq7ncYU6qJGcdU0R51BJFIBf4D8UO27SMCXKzwSMTveamQZCGMACLdrzKA9tpIMAgGu3nDqokhfDIYuL3QERh4pri0yJmJCDwwwYcr1u5x3hMPRZyAgRBr3sDMP1T04MmKAH6hFk48VA1Ckcb9GcC8MlOpNtQnhNDJGDEyRHyLQSq4tYp92GjsDZvCXsvADx4H6ZaCFwoAtLu/bds51esHbDg4l+geKxSibS5Zw6ij4T+vyiWDYE4PWQGvhSuCzvhj/4xPbLu3n/AcRPBhEmuqtmhhpdGslxVIKi7Ct214I/BkUtLyYhn7wz6ARgGYefgoQfAl4MyhydXcDM8W1ezAgHaDyrmp6/ba/HYhp6MSjz14Jfn4BzzyOff7FstcUSzcGFVEvWa6tJDYowuuqCuXE6RgUCg/+lc2+EjgCgmeW0o+/fLJs+w6tejHgovJr3Gz1050zQiIWUqV6u+H1m74MtNY441dfp1ITwTPAeGYqmtbTwh/ids4Lg9+ViH5a9A8di8kIVTChDPzAKxR0YaBpiUL+m9lMKhWCHQgGsSk9qn9egqDgmR38GTS5uk6hlXyxXADcgFB8CYqCVb/f82QgzCD/FIxgIjQGejqtR799spzzjAq+CKBUMKFeQvPtLAahYGuvIWqp0zAoFPKJB1+nkpnwGERj6VhU1x8+844IvgzE4KDJdzc6qiWKyjsqL56ojntjAJ7wzWepZGoiGaIdTE0dxHQ99t2+DfVS3ww4fNrFosgPjFGmQJPI6KWK79X7MRBT7k9nU5mJlPgTFoNoLBqN6ulo9MsnC/uuJWP364EECPUSg1aaUVTbU080iT0yyGsFTfhBcsJReAyEYjH9cfThM4BwKgYmmD3kB4YYVZz5A3838LaDgvYoC26QGQQDPZpORx/HvnNNDt0ZiFayyKGfVqAuEk0iPyUD4QfJTGogDGK6AKHr3z5xgdADAzHUCEXj/fLtxrEhs74YfPX1bCabGYAvxBzpuuMS6Wd2vQRVY6mU64tBS1xVRY/cQ0TsYKBpoknUCgXtm8+SYAKZzKEZhM4A5FhE+vsVu5TL1Ttayd4Z9KMOO9BEj6iBH8BlvwAwOAb644N//2XBfi/ekSYDZyAWqSYe/AD5MNlBYHB2oOsH+qe55c51m0EzgCapkH+UTWWyWaiLhoBBOqrHYt9/Ug+RAcSCB0+zqWzK0UAYnJAejUE/XYofFUwBMii0GmWoiyZcNEAGoKn0s4V4qRTPBcwAEOQT2iMoCoaNgT51oKe//2J5v7WaPUAGYp2q9jSZyQydHaRFE6V/+aS+H3g80CAfzLarouFhIFrJA6DwzCmWAmLAp52FupAPkk6TOFAGL1JCW07hCK/P90sQGINhINYnQn+QdfUCIaiWBs0AEEylIT/sl4JhUJmG/uCHVCo7xAyglQR3SD9bqQfDoDkt6qJkatI1FAwHg5h+cJCeiun/+aSnFqhvmdNPBYKXq6LhYiCGVXQ9BlXjt7ecZtA0exgU6K5Wa81X+d3/ivYg81KTNER5oSNDAIR0dbPOzYqYbD4XBtBbF3ljb2sy6RkOh4pBVDCYRxtrDV5c9Zw260/CDNTLaH5yYmQYRNPzlH18i6tmD4OE3VUUc7U71xFikyk/Pxg2BoiQ6mZPg8U9iEfUvapCsAG+0MUQhooBiGyoXCw/OcvVO7GAVy5jZBDSnUFmaBjohwxQ7blYVCOWKJ5SxaJYx7RTdjZHIaVbTAwzN/bEAFtUbELqZeLAmwG4U32vxlpTk6PHgFxEcwRt754lN/Am+AFSDhd2jh4DMZmsEPbx/TMUSia/W2bkaNX7UDGI+ajNQKy1Mxiq/qhGIseX2fUgMQXT2BPrnI8Wa4wQg9ghg9bPE4VuV9T+s0Oxwrl6yWK0vUphhBgc5UZHYMiKkx/6ZQAEnpfZRaq0tweOKgNID9Y8sX70X2nkoqa6WUXizkftlRojygBjRgiGK9nY5a21tz2y4KvbGDHD6FzaO3QMOhKBTzxoq3arwSvFbt10C5TJ1Z3ruLXWv0MjxCDqygBZP6kNE1rJrlUjh3zwY9UwTtwAbOQZQIDf2G1Euiy7EiMv0CdvI8eHju2WHnkGBBGjdl/lXatGs3L3OkRCenLXzygxiLr6gticUL1X556VQstAOPTJ2KAGBMTjWx2GikFvtbKLKN5YdaKia1AQg2+8csdzO+h4MJijol4yXR2iuBoxTXWnrCjjzYASgxj3Vj2KhCaHuohRz51v48GAUAM+5Q2P9el8bRuJu2F5HXyoGHSpE70ZGIf9w32xT6HDIaAyMk0OfuC7B3Q8GLTegrDqT+pLW3YqRc4bm9bxwvCYxocBZDxlHjn9Q4ch8N07iCL/W5GOEQMGraSi1J53BIVm/XkNggXzv1PEGDHA4p60RIH+4QUE0Scrxomi6JjGiYHzFS53EfyhIiYg1G2xB7jrNuAxYtBW7RZvRnjjeQ0bvexOHUcGCrXuqby+aUGIwMebRLefH0MGkCWNxd1tcd8PKA67W8I4MhD9NHTUBuREpXWvQX91ZTB8843nru4MhmfeWTLwGkM5u0aJgbSDPwmDY5nAufLT5IU+JRlIBkKSwYgwcCKiZDDQvDC4fkEykAz+vAyGtU6UDCQDySBsBv4IBlojhcIAkfmHenpYa+VMJjn7cxjPpPlFH+J+ITk5FwID9OuSPqwMUpnUb4E/PFEEhPlfujBwX6N5DuohHoAZhPDANgvPLDl3jXPuGBa2HUz4b2ubfQUpITzAECP261LM2dyc1o9dvpAutnkGyOAIQqb9yjividTE7B+e67nOVWKtzK9Ljw8vPX1CzreCYcAmMylPQTCY/U25SIJ/kqjzEEWMZn5ZcgxAd1E0MF8wJrPJbMZNyWQym538WTwGKLSnHGM287+DpSNNLU05r9Y/QEvBMJifnP191l2/T/7x8xyEAhbGI7+dIxw+XZwpCjsh+FZQTknnPCVOi2KDDOyx51JSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUqD/A8EQFEPz1qW4AAAAAElFTkSuQmCC" alt="Email">
         </div>
     </div>
-</body>
-</html>
