@@ -141,26 +141,8 @@
             background-color: #d3ebff;
             padding: 5px;
         }
-       .Apartment {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 5px;       
-        }
-        .Apartment .room{
-            background-color: #89dcbf;
-        }
-        .Apartment .room.selected {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .Apartment-lable {
-            background-color: #89dcbf;
-            margin-top: 0px;
-        }
-        .apartment-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 5px;
+        .BigApartment {
+            background-color: #a19090;
         }
         .total-price {
             top: 10%;
